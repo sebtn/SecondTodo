@@ -7,7 +7,6 @@ import Main from '././components/Main'
 import  '././styles/app.scss' 
 
 'use strict'
-
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={Main} >
