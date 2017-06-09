@@ -44,12 +44,21 @@
 
 /*  Bootstrap overrides
 --------------------
-
 /*Colors*/
-
+$grey: #555;
+$white: #FFFFFF;
+$l-blue:#afcdf6;
+$d-blue:#2099E8;
 
 
 /*Navigation colors*/
+$nav-background: $grey;
+$nav-text-color: $white;
+$clock-text-color: $white;
+$clock-bg-color:$l-blue;
+$clock-border-color: $d-blue;
+$box-shadow-border: #222;
+$placeholder-letter: #D3D3D3;
 
 
 
