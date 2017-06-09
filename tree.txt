@@ -13,6 +13,7 @@
 │   │   └── components
 │   └── tests
 │       └── components
+│           ├── app.test.js
 │           ├── test_index.js
 │           ├── todoApp.test.js
 │           ├── todoList.test.js
@@ -27,4 +28,4 @@
 ├── tree.txt
 └── webpack.config.js
 
-8 directories, 19 files
+8 directories, 20 files
