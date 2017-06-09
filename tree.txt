@@ -5,7 +5,8 @@
 │   │   ├── AddTodo.js
 │   │   ├── TodoApp.js
 │   │   ├── Todo.js
-│   │   └── TodoList.js
+│   │   ├── TodoList.js
+│   │   └── TodoSearch.js
 │   ├── styles
 │   │   ├── app.scss
 │   │   ├── base
@@ -32,4 +33,4 @@
 ├── tree.txt
 └── webpack.config.js
 
-8 directories, 24 files
+8 directories, 25 files
