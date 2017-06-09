@@ -16,7 +16,7 @@ export default class TodoList extends Component {
 		} )
 	}
 
-/*------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 	render() {
 		return(
 			<div className="test-container">

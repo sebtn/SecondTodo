@@ -21,6 +21,14 @@ export default class TodoApp extends Component {
 				{	
 					id: 3,
 					text: 'Clean the trash'
+				},	
+				{	
+					id: 4,
+					text: 'Build reactor'
+				}	,		
+				{	
+					id: 5,
+					text: 'Explore with acid'
 				}		
 			]
 		}

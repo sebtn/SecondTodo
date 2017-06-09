@@ -8,8 +8,8 @@ export default class Todo extends Component {
 	render() {
 		return(
 			<div className="test-container">
-				<p>Todo Element</p>
-				<p>{this.props.text}</p>
+				<br/>
+				<p>{this.props.id} {this.props.text}</p>
 			</div>
 		)	
 	}
