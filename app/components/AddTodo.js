@@ -5,15 +5,18 @@ import PropTypes from 'prop-types'
 
 export default class AddTodo extends Component {
 
+/*-----------------------------------------------------------------*/
 	onSubmit = (e) => {
 		e.preventDefault()
 		let text = this.refs.todoPassed.value
-			/*this fires up the callback onSetText to parent
-			note that is no defined, it is just declared*/
+		if (text !== '' ) {
+			/*this fires up the callback ```onSetText``` to parent
+			note that it is not defined, it is just declared*/
 			this.props.onSetText(text)
+		}
 	}
 
-/*--------------------------------------------------------------*/
+/*-----------------------------------------------------------------*/
 	render() {
 		return(
 			<div className="add-todo-container">

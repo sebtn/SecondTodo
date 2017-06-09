@@ -55,7 +55,7 @@ componentWillUpdate(nextProps, nextState) {
 				<div className="col-sm-3 col-md-6 col-lg-4"></div>
 				<div className="col-sm-6 col-md-6 col-lg-4 text-center">
 					<TodoList todos={this.state.todos} />
-					<AddTodo  onSetText={this.handlerAddTodo} />
+					<AddTodo onSetText={this.handlerAddTodo} />
 				</div>
 				<div className="col-sm-3 col-md-6 col-lg-4"></div>
 				</div>
