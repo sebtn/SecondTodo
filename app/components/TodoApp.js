@@ -12,6 +12,8 @@ export default class TodoApp extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			showCompleted: false,
+			searchText: '',
 			todos: [
 				{
 					id: uuid(),
@@ -58,18 +60,26 @@ componentWillUpdate(nextProps, nextState) {
 }
 
 /*--------------------------------------------------------------*/
+handleSearch = (showCompleted, searchText) => {
+	this.setState({
+		showCompleted: showCompleted,
+		searchText: searchText.toLowerCase()
+	})
+}
+
+/*--------------------------------------------------------------*/
 	render() {
 		return(
 			<div className='main-container'>
 				<h1>ToDO App built with ReactJs and caffeine</h1>
 				<div className="row">
-					<div className="col-sm-3 col-md-6 col-lg-4"></div>
-					<div className="col-sm-6 col-md-6 col-lg-4 ">
-						<TodoSearch />
+					<div className="col-sm-3 col-md-3 col-lg-4"></div>
+					<div className="col-sm-6 col-md-6 col-lg-4 text-center">
+						<TodoSearch onSearch={this.handleSearch}/>
 						<TodoList todos={this.state.todos} />
 						<AddTodo onSetText={this.handlerAddTodo} />
 					</div>
-					<div className="col-sm-3 col-md-6 col-lg-4"></div>
+					<div className="col-sm-3 col-md-3 col-lg-4"></div>
 				</div>
 			</div>
 		)	
