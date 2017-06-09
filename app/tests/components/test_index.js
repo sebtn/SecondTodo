@@ -69,10 +69,20 @@ describe('Component TodoApp', () => {
 		expect(TodoApp).toExist()
 	})
 
+	it('Test #2: it should add item to todoState using hanldeAddTodo', () => {
+		let todoText = 'Test text'
+		let todoAppMock = TestUtils.renderIntoDocument(<TodoApp />)
+
+		todoAppMock.setState({ todos: [] })
+		todoAppMock.handlerAddTodo(todoText)
+
+		expect(todoAppMock.state.todos[0].text).toBe(todoText)
+	})
+
 })
 
 /*--------------------------------------------------------------*/
-/*Component TodoApp*/
+/*Component AddToDo*/
 describe('Component Add To Do ', () => {
 
 	it('Test #1: Component should exist', () => {

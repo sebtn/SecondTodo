@@ -1,21 +1,13 @@
 {
-  "name": "timerapp",
+  "name": "todoapp",
   "version": "1.0.0",
-  "description": "Timer App built on React.js",
+  "description": "App built on React.js",
   "main": "webpack.config.js",
   "scripts": {
     "test": "karma start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sebtn/TimerAppReacJs.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sebtn/TimerAppReacJs/issues"
-  },
-  "homepage": "https://github.com/sebtn/TimerAppReacJs#readme",
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -34,6 +26,7 @@
     "karma-webpack-with-fast-source-maps": "^1.10.1",
     "mocha": "^3.4.2",
     "node-sass": "^4.5.3",
+    "node-uuid": "^1.4.8",
     "react-addons-test-utils": "^15.4.0",
     "sass-loader": "^6.0.5",
     "script-loader": "^0.7.0",

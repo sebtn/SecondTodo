@@ -9,10 +9,13 @@ export default class AddTodo extends Component {
 	onSubmit = (e) => {
 		e.preventDefault()
 		let text = this.refs.todoPassed.value
-		if (text !== '' ) {
+		if (text.length > 0 ) {
 			/*this fires up the callback ```onSetText``` to parent
 			note that it is not defined, it is just declared*/
+			// this.refs.todoPassed.value = ' '
 			this.props.onSetText(text)
+		} else {
+			this.refs.todoPassed.focus()
 		}
 	}
 

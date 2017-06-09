@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import uuid from 'node-uuid'
 
 import TodoList from './TodoList'
 import AddTodo from './AddTodo'
@@ -12,23 +13,23 @@ export default class TodoApp extends Component {
 		this.state = {
 			todos: [
 				{
-					id: 1,
+					id: uuid(),
 					text: 'Walk the dog'
 				},
 				{	
-					id: 2,
+					id: uuid(),
 					text: 'Clean the yard'
 				},
 				{	
-					id: 3,
+					id: uuid(),
 					text: 'Clean the trash'
 				},	
 				{	
-					id: 4,
+					id: uuid(),
 					text: 'Build reactor'
 				}	,		
 				{	
-					id: 5,
+					id: uuid(),
 					text: 'Explore with acid'
 				}		
 			]
@@ -37,7 +38,15 @@ export default class TodoApp extends Component {
 
 /*--------------------------------------------------------------*/
 	handlerAddTodo = (text) => {
-		alert('New Todo added: ' + text)
+		this.setState({
+			todos: [
+			...this.state.todos, 
+			{
+				id: uuid(),
+				text: text,
+			}
+			],
+		})
 
 	}
 
@@ -53,12 +62,12 @@ componentWillUpdate(nextProps, nextState) {
 			<div className='main-container'>
 				<h1>ToDO App built with ReactJs and caffeine</h1>
 				<div className="row">
-				<div className="col-sm-3 col-md-6 col-lg-4"></div>
-				<div className="col-sm-6 col-md-6 col-lg-4 ">
-					<TodoList todos={this.state.todos} />
-					<AddTodo onSetText={this.handlerAddTodo} />
-				</div>
-				<div className="col-sm-3 col-md-6 col-lg-4"></div>
+					<div className="col-sm-3 col-md-6 col-lg-4"></div>
+					<div className="col-sm-6 col-md-6 col-lg-4 ">
+						<TodoList todos={this.state.todos} />
+						<AddTodo onSetText={this.handlerAddTodo} />
+					</div>
+					<div className="col-sm-3 col-md-6 col-lg-4"></div>
 				</div>
 			</div>
 		)	
