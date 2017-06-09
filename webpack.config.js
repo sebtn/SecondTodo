@@ -1,7 +1,7 @@
 let path = require('path')
 let webpack = require('webpack')
 
-module.exports = {
+module.exports =  {
   entry: [
     './app/app.js',
   ],
