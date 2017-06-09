@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import TodoList from './TodoList'
+import AddTodo from './AddTodo'
 
 'use strict'
 
@@ -34,10 +35,30 @@ export default class TodoApp extends Component {
 		}
 	}
 
+/*--------------------------------------------------------------*/
+	handlerAddTodo = (text) => {
+		alert('New Todo added: ' + text)
+
+	}
+
+/*--------------------------------------------------------------*/
+componentWillUpdate(nextProps, nextState) {
+	// console.log(this.props.onSetText())
+
+}
+
+/*--------------------------------------------------------------*/
 	render() {
 		return(
-			<div>
-				<TodoList todos={this.state.todos} />
+			<div className='main-container'>
+				<div className="row">
+				<div className="col-sm-3 col-md-6 col-lg-4"></div>
+				<div className="col-sm-6 col-md-6 col-lg-4 text-center">
+					<TodoList todos={this.state.todos} />
+					<AddTodo  onSetText={this.handlerAddTodo} />
+				</div>
+				<div className="col-sm-3 col-md-6 col-lg-4"></div>
+				</div>
 			</div>
 		)	
 	}

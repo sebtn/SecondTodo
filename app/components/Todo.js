@@ -7,10 +7,11 @@ export default class Todo extends Component {
 
 	render() {
 		return(
-			<div className="test-container">
-				<br/>
-				<p>{this.props.id} {this.props.text}</p>
-			</div>
+				<div className="test-container">
+	
+					<p>{this.props.id} {this.props.text}</p>
+
+				</div>
 		)	
 	}
 }
