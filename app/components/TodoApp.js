@@ -4,7 +4,8 @@ import uuid from 'node-uuid'
 
 import TodoList from './TodoList'
 import AddTodo from './AddTodo'
-
+import TodoSearch from './TodoSearch'
+	
 'use strict'
 
 export default class TodoApp extends Component {
@@ -64,6 +65,7 @@ componentWillUpdate(nextProps, nextState) {
 				<div className="row">
 					<div className="col-sm-3 col-md-6 col-lg-4"></div>
 					<div className="col-sm-6 col-md-6 col-lg-4 ">
+						<TodoSearch />
 						<TodoList todos={this.state.todos} />
 						<AddTodo onSetText={this.handlerAddTodo} />
 					</div>

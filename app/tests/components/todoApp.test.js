@@ -13,7 +13,7 @@ describe('Component TodoApp', () => {
 		expect(TodoApp).toExist()
 	})
 
-	it('Test #2: it should add todo todoState using hanldeAddTodo', () => {
+	it('Test #2: it should add item to todoState using hanldeAddTodo', () => {
 		let todoText = 'Test text'
 		let todoAppMock = TestUtils.renderIntoDocument(<TodoApp />)
 
