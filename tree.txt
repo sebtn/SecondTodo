@@ -15,7 +15,8 @@
 │   │   └── components
 │   │       ├── addTodo.scss
 │   │       ├── searchTodo.scss
-│   │       └── todoApp.scss
+│   │       ├── todoApp.scss
+│   │       └── todo.scss
 │   └── tests
 │       └── components
 │           ├── addTodo.test.js
@@ -35,4 +36,4 @@
 ├── tree.txt
 └── webpack.config.js
 
-8 directories, 27 files
+8 directories, 28 files
