@@ -24,7 +24,7 @@
 │           ├── test_index.js
 │           ├── todoApp.test.js
 │           ├── todoList.test.js
-│           ├── todoSearch.tets.js
+│           ├── todoSearch.test.js
 │           └── todo.test.js
 ├── karma.conf.js
 ├── package.json
