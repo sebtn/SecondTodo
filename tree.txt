@@ -14,6 +14,7 @@
 │   │   │   └── _variables.scss
 │   │   └── components
 │   │       ├── addTodo.scss
+│   │       ├── searchTodo.scss
 │   │       └── todoApp.scss
 │   └── tests
 │       └── components
@@ -22,6 +23,7 @@
 │           ├── test_index.js
 │           ├── todoApp.test.js
 │           ├── todoList.test.js
+│           ├── todoSearch.tets.js
 │           └── todo.test.js
 ├── karma.conf.js
 ├── package.json
@@ -33,4 +35,4 @@
 ├── tree.txt
 └── webpack.config.js
 
-8 directories, 25 files
+8 directories, 27 files
