@@ -23,5 +23,4 @@ describe('Component TodoApp', () => {
 		expect(todoAppMock.state.todos[0].text).toBe(todoText)
 	})
 
-
 })

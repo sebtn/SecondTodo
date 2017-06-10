@@ -12,7 +12,6 @@ import AddTodo from '../../components/AddTodo'
 import TodoSearch from '../../components/TodoSearch'
 
 
-
 'use strict'
 /*require all modules ending in "_test" from the
 current directory and all subdirectories*/
@@ -112,6 +111,7 @@ describe('Component Add To Do ', () => {
 
 		expect(spy).toNotHaveBeenCalled()
 	})
+
 })
 
 /*--------------------------------------------------------------*/
@@ -133,7 +133,7 @@ describe('Component TodoSearch exists', () => {
 		expect(spy).toHaveBeenCalledWith(false, 'Acid test')
 	})
 
-	it('test #3: it should called onSearch with proper value ', () => {
+	it('test #3: should called onSearch with proper value ', () => {
 		let spy = expect.createSpy()
 		let todoSearch = TestUtils.renderIntoDocument(<TodoSearch onSearch={spy} />)
 		let showCompleted = false

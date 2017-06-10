@@ -5,11 +5,18 @@ import PropTypes from 'prop-types'
 
 export default class Todo extends Component {
 
+/*--------------------------------------------------------------*/
 	render() {
 		return(
-				<div className="test-container">
-					<p>{this.props.id} {this.props.text}</p>
+			<div className="todo-container">
+				<div className="todo-element-container" onClick={ () => {
+					this.props.onToggle(this.props.id) }}>
+						<input  className="form-check-input" type="checkbox" 
+						defaultChecked={this.props.completed} />
+							<span className="text"> {this.props.text} </span>
 				</div>
+			</div>
+
 		)	
 	}
 }
