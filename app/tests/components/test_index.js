@@ -38,6 +38,21 @@ describe('Component Todo', () => {
 		expect(Todo).toExist()
 	})
 
+	it('Test# 2: it should call onToggle prop with OnClick', () => {
+		let todoDummy = {
+			id: 155,
+			text: 'Some text here',
+			completed: true
+		}
+		let spy = expect.createSpy()
+		let todoComponent = TestUtils.renderIntoDocument(<Todo {...todoDummy} onToggle={spy} />)
+		let $el = $(ReactDOM.findDOMNode(todoComponent))
+		/*verify OnClick is getting passed from the second div 
+		in the component*/
+		TestUtils.Simulate.click($el[0])
+		expect(spy).toHaveBeenCalledWith(155)
+	})
+
 })
 
 /*--------------------------------------------------------------*/
@@ -79,6 +94,21 @@ describe('Component TodoApp', () => {
 
 		expect(todoAppMock.state.todos[0].text).toBe(todoText)
 	})
+
+	it('Test# 3: handleToggle method should toggle completed', () => {
+		let todoDummy = {
+			id: 15,
+			text: 'Some text here',
+			completed: false 
+		}
+		let todoApp = TestUtils.renderIntoDocument(<TodoApp />)
+		todoApp.setState({todos: [todoDummy] })
+
+		expect(todoApp.state.todos[0].completed).toBe(false)
+		todoApp.handleToggle(todoDummy.id)		
+		expect(todoApp.state.todos[0].completed).toBe(true)
+	})
+
 
 })
 
