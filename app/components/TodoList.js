@@ -8,7 +8,7 @@ import Todo from './Todo'
 export default class TodoList extends Component {
 
 	renderTodos = () => {
-		/*Map all the todos array, which is being passed as prop*/
+		/*Map all the 'todos' array, which is being passed as prop*/
 		return this.props.todos.map( (todo) => {
 			return (
 				<Todo key={todo.id} {...todo}

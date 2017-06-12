@@ -25,7 +25,6 @@ describe('Component Todo', () => {
 		let todo = TestUtils.renderIntoDocument(<Todo {...todoDummy} onToggle={spy}/>)
 		let $el = $(ReactDOM.findDOMNode(todo))
 
-
 		TestUtils.Simulate.submit($el[0].onClick)
 		expect(spy).toHaveBeenCalledWith()
 	})

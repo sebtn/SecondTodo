@@ -47,9 +47,10 @@ describe('Component Todo', () => {
 		let spy = expect.createSpy()
 		let todoComponent = TestUtils.renderIntoDocument(<Todo {...todoDummy} onToggle={spy} />)
 		let $el = $(ReactDOM.findDOMNode(todoComponent))
-		/*verify OnClick is getting passed from the second div 
+		/*verify OnClick is getting passed from the first div 
 		in the component*/
 		TestUtils.Simulate.click($el[0])
+		/*passing id onToggle using the pread to inject the props in the component*/
 		expect(spy).toHaveBeenCalledWith(155)
 	})
 
