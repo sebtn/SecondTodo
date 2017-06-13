@@ -8,6 +8,7 @@ export default class Todo extends Component {
 	render() {
 		let {createdAt, completedAt, completed, text, id} = this.props
 		let todoClassName = completed ? 'todo todo-completed' : 'todo'
+		
 /*--------------------------------------------------------------*/
 		let renderedDate = () => {
 			let message = '  Created '
@@ -17,10 +18,12 @@ export default class Todo extends Component {
 				let message = '  Completed  '
 				let timestamp = completedAt
 				
-				return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a') 
+				return message + 
+					moment.unix(timestamp).format('MMM Do YYYY @ h:mm a') 
 			}
 
-			return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a') 
+			return message + 
+				moment.unix(timestamp).format('MMM Do YYYY @ h:mm a') 
 		} 
 
 /*--------------------------------------------------------------*/
