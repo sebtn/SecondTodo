@@ -6,23 +6,30 @@ import moment from 'moment'
 
 export default class Todo extends Component {
 	render() {
+		let {createdAt, completedAt, completed, text, id} = this.props
 /*--------------------------------------------------------------*/
 		let renderedDate = () => {
-			let {createdAt} = this.props
 			let message = 'Created '
 			let timestamp = createdAt
 			
-			return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a') 
+			if (completed) {
+				let message = 'Completed '
+				let timestamp = completedAt
+				
+				return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a') 
 			}
+
+			return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a') 
+		} 
 
 /*--------------------------------------------------------------*/
 		return(
 				<div className="todo-element-container" onClick={ () => {
-					this.props.onToggle(this.props.id) }}>
+					this.props.onToggle(id) }}>
 						<input  className="form-check-input" type="checkbox" 
-						defaultChecked={this.props.completed} />
-							<span className="text"> {this.props.text} </span>
-							<span className="date"> <b>{renderedDate()}</b></span>
+						defaultChecked={completed} />
+							<span className="text"> {text} </span>
+							<span className="date"> {renderedDate()} </span>
 				</div>
 		)	
 	}
