@@ -23,10 +23,29 @@
 	}
 	& .form-control {
 		margin: 1.25rem 0;
+		outline: none;
+		-webkit-box-shadow: 0 4px 6px -6px $box-shadow-border;
+		-moz-box-shadow: 0 4px 6px -6px $box-shadow-border;
+		box-shadow: 0 4px 6px -6px $box-shadow-border;
+		border: 0;
+		border-bottom: 1px solid $placeholder-letter;
+		min-height: 2.75rem;
+		font-size: 1.5rem;
+			& focus {
+				outline: none;
+				-webkit-box-shadow: 0 4px 6px -6px $box-shadow-border;
+				-moz-box-shadow: 0 4px 6px -6px $box-shadow-border;
+				box-shadow: 0 4px 6px -6px $box-shadow-border;
+				border: 0;
+				border-bottom: 1px solid $placeholder-letter
+			}	
 	}
 	& p.text {
 		padding: 0 0.25rem;
 		vertical-align: middle;
+	}
+	& .form-check {
+		border-bottom: 1px solid lightgrey
 	}
 	& .form-check-input {
 		vertical-align: middle;

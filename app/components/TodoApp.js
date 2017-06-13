@@ -72,14 +72,14 @@ handleSearch = (showCompleted, searchText) => {
 			<div className='main-container'>
 				<h1>ToDO App built with ReactJs and caffeine</h1>
 				<div className="row">
-					<div className="col-sm-3 col-md-3 col-lg-4"></div>
-					<div className="col-sm-6 col-md-6 col-lg-4 text-center">
+					<div className="col-sm-1 col-md-1 col-lg-3"></div>
+					<div className="col-sm-10 col-md-10 col-lg-6 list-container">
 						<TodoSearch onSearch={this.handleSearch}/>
 						<TodoList todos={filteredTodos} 
 							onToggle={this.handleToggle} />
 						<AddTodo onSetText={this.handlerAddTodo} />
 					</div>
-					<div className="col-sm-3 col-md-3 col-lg-4"></div>
+					<div className="col-sm-1 col-md-1 col-lg-3"></div>
 				</div>
 			</div>
 		)	

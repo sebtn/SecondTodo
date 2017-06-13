@@ -16,15 +16,17 @@
 	::-ms-input-placeholder { /* Microsoft Edge */
 	   color: $placeholder-letter;
 	}
-
 	& button {
 		margin-top: 1.25rem;
 		border-radius: 0;
 		width: 100%;
 		font-weight: bold;
 	}
+	& .form-group {
+		border-top: 1px solid lightgrey;
+	}
 	& .form-control {
-		margin-top: 3rem;
+		margin-top: 1.5rem;
 		outline: none;
 		-webkit-box-shadow: 0 4px 6px -6px $box-shadow-border;
 		-moz-box-shadow: 0 4px 6px -6px $box-shadow-border;
