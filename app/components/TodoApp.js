@@ -38,7 +38,7 @@ export default class TodoApp extends Component {
 
 /*--------------------------------------------------------------*/
 componentWillUpdate(nextProps, nextState) {
-	// console.log(this.props.onSetText())
+
 
 }
 
@@ -61,6 +61,8 @@ handleSearch = (showCompleted, searchText) => {
 
 /*--------------------------------------------------------------*/
 	render() {
+		let {todos, showCompleted, searchText} = this.state
+		let filteredTodos = TodoApi.filterTodos(todos, showCompleted, searchText)
 		return(
 			<div className='main-container'>
 				<h1>ToDO App built with ReactJs and caffeine</h1>
@@ -68,7 +70,8 @@ handleSearch = (showCompleted, searchText) => {
 					<div className="col-sm-3 col-md-3 col-lg-4"></div>
 					<div className="col-sm-6 col-md-6 col-lg-4 text-center">
 						<TodoSearch onSearch={this.handleSearch}/>
-						<TodoList todos={this.state.todos} onToggle={this.handleToggle}/>
+						<TodoList todos={filteredTodos} 
+							onToggle={this.handleToggle} />
 						<AddTodo onSetText={this.handlerAddTodo} />
 					</div>
 					<div className="col-sm-3 col-md-3 col-lg-4"></div>

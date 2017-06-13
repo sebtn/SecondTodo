@@ -44,3 +44,33 @@ describe('TodoApi component', () => {
 	})
 
 })
+
+describe('Filter todo method', () => {
+	let todos = [{
+		id: 1,
+		text: 'some string text',
+		completed: false,
+		}, {
+		id: 2,
+		text: 'some string text another time',
+		completed: true,
+		}, {
+		id: 3,
+		text: 'some string text a third time',
+		completed: true,
+		}
+	]
+
+	it('Test #1: showCompleted should return all items where completed is true', () => {
+		let filteredTodos = TodoApi.filterTodos(todos, true, '')
+
+		expect(filteredTodos.length).toBe(3)
+	})
+
+	it('Test #2: showCompleted should return all items where completed is true', () => {
+		let filteredTodos = TodoApi.filterTodos(todos, false, '')
+
+		expect(filteredTodos.length).toBe(2)
+	})
+
+})

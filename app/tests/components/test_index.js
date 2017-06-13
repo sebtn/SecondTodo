@@ -4,14 +4,13 @@ import expect from 'expect'
 import TestUtils from 'react-addons-test-utils'
 import $ from 'jquery'
 
-/*Imports components*/
+/*Import components*/
 import Todo from '../../components/Todo'
 import TodoList from '../../components/TodoList'
 import TodoApp from '../../components/TodoApp'
 import AddTodo from '../../components/AddTodo'
 import TodoSearch from '../../components/TodoSearch'
 import TodoApi from '../../api/TodoApi'
-
 
 'use strict'
 /*require all modules ending in "_test" from the
@@ -20,6 +19,15 @@ let testsContext = require.context(".", true, /_test$/)
 testsContext.keys().forEach(testsContext)
 
 /*Begin tests*/
+/*--------------------------------------------------------------*/
+/*Main: app Component*/
+describe('Main App', () => {
+
+	it('The App should be testable', () => {
+		expect(1).toBe(1)
+	})
+
+})
 
 /*Test todoAPI*/
 /*--------------------------------------------------------------*/
@@ -33,7 +41,7 @@ describe('TodoApi component', () => {
 		expect(TodoApi).toExist()
 	})
 
-	it('test #2: getTodos should return empty array for bad storage local', () => {
+	it('test #2: getTodos should return empty array for bad storage', () => {
 		let actualTodos = TodoApi.getTodos()
 		expect(actualTodos).toEqual([])
 	})
@@ -69,15 +77,34 @@ describe('TodoApi component', () => {
 		expect(localStorage.getItem('todos')).toBe(null)
 	})
 
-})
+	describe('Nest #1: Filter todo method', () => {
+		let todos = [{
+			id: 1,
+			text: 'some string text',
+			completed: false,
+			}, {
+			id: 2,
+			text: 'some string text another time',
+			completed: true,
+			}, {
+			id: 3,
+			text: 'some string text a third time',
+			completed: true,
+			}
+		]
 
+		it('Test #1: showCompleted will return all items if completed props is true', () => {
+			let filteredTodos = TodoApi.filterTodos(todos, true, '')
 
-/*--------------------------------------------------------------*/
-/*Main: app Component*/
-describe('Main App', () => {
+			expect(filteredTodos.length).toBe(3)
+		})
 
-	it('app should be testable', () => {
-		expect(1).toBe(1)
+		it('Test #2: showCompleted should return NOT all items if completed is false', () => {
+			let filteredTodos = TodoApi.filterTodos(todos, false, '')
+
+			expect(filteredTodos.length).toBe(1)
+		})
+
 	})
 
 })
@@ -90,7 +117,7 @@ describe('Component Todo', () => {
 		expect(Todo).toExist()
 	})
 
-	it('Test# 2: it should call onToggle prop with OnClick', () => {
+	it('Test #2: it should call onToggle prop with OnClick', () => {
 		let todoDummy = {
 			id: 155,
 			text: 'Some text here',
@@ -102,7 +129,7 @@ describe('Component Todo', () => {
 		/*verify OnClick is getting passed from the first div 
 		in the component*/
 		TestUtils.Simulate.click($el[0])
-		/*passing id onToggle using the pread to inject the props in the component*/
+		/*passing id onToggle using the spread to inject the props in the component*/
 		expect(spy).toHaveBeenCalledWith(155)
 	})
 
@@ -116,16 +143,16 @@ describe('Component TodoList', () => {
 		expect(TodoList).toExist()
 	})
 
-		it('Test#2: should render one Todo for each item in TodoList array', () => {
-			let todos = [
-				{id:1, text:'Some text for item 1'},
-				{id:2, text:'some text for item 2' }
-			]
-			/*from dom */
-			let todoList = TestUtils.renderIntoDocument(<TodoList todos={todos} />)
-			let todosRendered = TestUtils.scryRenderedComponentsWithType(todoList, Todo)
+	it('Test #2: should render one Todo for each item in TodoList array', () => {
+		let todos = [
+			{id:1, text:'Some text for item 1'},
+			{id:2, text:'some text for item 2' }
+		]
+		/*from dom */
+		let todoList = TestUtils.renderIntoDocument(<TodoList todos={todos} />)
+		let todosRendered = TestUtils.scryRenderedComponentsWithType(todoList, Todo)
 
-			expect(todos.length).toBe(todosRendered.length)
+		expect(todos.length).toBe(todosRendered.length)
 	})
 
 })
@@ -148,7 +175,7 @@ describe('Component TodoApp', () => {
 		expect(todoAppMock.state.todos[0].text).toBe(todoText)
 	})
 
-	it('Test# 3: handleToggle method should toggle completed', () => {
+	it('Test #3: handleToggle method should toggle completed prop', () => {
 		let todoDummy = {
 			id: 15,
 			text: 'Some text here',
@@ -162,14 +189,13 @@ describe('Component TodoApp', () => {
 		expect(todoApp.state.todos[0].completed).toBe(true)
 	})
 
-
 })
 
 /*--------------------------------------------------------------*/
 /*Component TodoAdd*/
-describe('Component Add To Do ', () => {
+describe('Component ToDo ', () => {
 
-	it('Test #1: Component should exist', () => {
+	it('Test #1: Component AddToDo should exist', () => {
 		expect(AddTodo).toExist()
 	})
 
