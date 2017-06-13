@@ -15,15 +15,13 @@
 div.todo:hover {
 	background: #aaa;
 }
-
 .todo-subtext {
 	color: #999;
 	padding-left: 1rem;
 }
-
 .todo-completed {
 	p, .todo-subtext {
-		color: #afcdf6;
+		color: #f9a9a9;
 		text-decoration: line-through;
 		padding-left: 1rem;
 	}
