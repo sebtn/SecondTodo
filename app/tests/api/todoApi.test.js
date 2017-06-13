@@ -49,11 +49,11 @@ describe('Filter todo method', () => {
 	let todos = [{
 		id: 1,
 		text: 'some string text',
-		completed: false,
+		completed: true,
 		}, {
 		id: 2,
-		text: 'some string text another time',
-		completed: true,
+		text: 'Other string text another time',
+		completed: false,
 		}, {
 		id: 3,
 		text: 'some string text a third time',
@@ -71,6 +71,24 @@ describe('Filter todo method', () => {
 		let filteredTodos = TodoApi.filterTodos(todos, false, '')
 
 		expect(filteredTodos.length).toBe(2)
+	})
+
+	it('Test #3: showCompleted should sort by completed status', () => {
+		let filteredTodos = TodoApi.filterTodos(todos, true, '')
+
+		expect(filteredTodos[0].complete).toBe(false)
+	})
+
+	it('Test #4: showCompleted should filter by text', () => {
+		let filteredTodos = TodoApi.filterTodos(todos, true, 'some')
+
+		expect(filteredTodos.length).toBe(2)
+	})
+
+	it('Test #5: showCompleted should return all items if search bar empty', () => {
+		let filteredTodos = TodoApi.filterTodos(todos, true, '')
+
+		expect(filteredTodos.length).toBe(3)
 	})
 
 })
