@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import uuid from 'node-uuid'
+import moment from 'moment'
 
 import TodoList from './TodoList'
 import AddTodo from './AddTodo'
@@ -31,7 +32,7 @@ export default class TodoApp extends Component {
 			todos: 
 			[
 				...this.state.todos, 
-				{ id: uuid(), text: text, completed: false }
+				{ id: uuid(), text: text, completed: false, createdAt: moment().unix() }
 			],
 		})
 	}
