@@ -5,6 +5,7 @@ import uuid from 'node-uuid'
 import TodoList from './TodoList'
 import AddTodo from './AddTodo'
 import TodoSearch from './TodoSearch'
+import TodoApi from '../api/TodoApi'
 	
 'use strict'
 
@@ -14,34 +15,14 @@ export default class TodoApp extends Component {
 		this.state = {
 			showCompleted: false,
 			searchText: '',
-			todos: [
-				{
-					id: uuid(),
-					text: 'Walk the dog',
-					completed: false,
-				},
-				{	
-					id: uuid(),
-					text: 'Clean the yard',
-					completed: false,
-				},
-				{	
-					id: uuid(),
-					text: 'Clean the trash',
-					completed: true,
-				},	
-				{	
-					id: uuid(),
-					text: 'Build reactor',
-					completed: false,
-				},		
-				{	
-					id: uuid(),
-					text: 'Explore with acid',
-					completed: false,
-				}		
-			]
+			todos: TodoApi.getTodos()
 		}
+	}
+
+/*--------------------------------------------------------------*/
+/* ant time we make changes to the state or props, setTodos*/
+	componentDidUpdate = () => {
+		TodoApi.setTodos(this.state.todos)
 	}
 
 /*--------------------------------------------------------------*/

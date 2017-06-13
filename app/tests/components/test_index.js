@@ -10,6 +10,7 @@ import TodoList from '../../components/TodoList'
 import TodoApp from '../../components/TodoApp'
 import AddTodo from '../../components/AddTodo'
 import TodoSearch from '../../components/TodoSearch'
+import TodoApi from '../../api/TodoApi'
 
 
 'use strict'
@@ -19,6 +20,57 @@ let testsContext = require.context(".", true, /_test$/)
 testsContext.keys().forEach(testsContext)
 
 /*Begin tests*/
+
+/*Test todoAPI*/
+/*--------------------------------------------------------------*/
+describe('TodoApi component', () => {
+
+	beforeEach( () => {
+		localStorage.removeItem('todos')
+	})
+
+	it('Test #1: Api should exists', () => {
+		expect(TodoApi).toExist()
+	})
+
+	it('test #2: getTodos should return empty array for bad storage local', () => {
+		let actualTodos = TodoApi.getTodos()
+		expect(actualTodos).toEqual([])
+	})
+
+	it('test #3: getTodos should return valid array for proper storage', () => {
+		let todos = [{
+			id: 23,
+			text: 'some text',
+			completed: false
+		}]
+		localStorage.setItem('todos', JSON.stringify(todos))
+		let actualTodos = TodoApi.getTodos()
+
+		expect(actualTodos).toEqual(todos)
+	})
+
+	it('test #4: setTodos should set valid array todos', () => {
+		let todos = [{
+			id: 23,
+			text: 'some text',
+			completed: false
+		}]
+		TodoApi.setTodos(todos)
+		let actualTodos = JSON.parse(localStorage.getItem('todos'))
+
+		expect(actualTodos).toEqual(todos)
+	})
+
+	it('test #5: setTodos should NOT set invalid array todos', () => {
+		let badTodos = {dummy: 'dummy'} 
+		TodoApi.setTodos(badTodos)
+
+		expect(localStorage.getItem('todos')).toBe(null)
+	})
+
+})
+
 
 /*--------------------------------------------------------------*/
 /*Main: app Component*/
