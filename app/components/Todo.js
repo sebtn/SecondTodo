@@ -28,20 +28,16 @@ export default class Todo extends Component {
 
 /*--------------------------------------------------------------*/
 		return(
-				<div className={todoClassName} onClick={ () => {
+			<div className={todoClassName} onClick={ () => {
 					this.props.onToggle(id) }}>
-					<div>
-						<label className="custom-control custom-checkbox">
-							<input  className="custom-control-input" type="checkbox" 
-							defaultChecked={completed} />
-							<span className="custom-control-indicator"></span>
-						</label>
-					</div>
-					<div>
-						<p className="text"> {text} </p>
-						<div className="todo-subtext"> {renderedDate()} </div>		
-					</div>
-				</div>
+				<label className="custom-control custom-checkbox"  >
+					<input  className="custom-control-input" type="checkbox" 
+					checked={completed} />
+					<span className="custom-control-indicator"></span>
+				</label>
+				<p className="text"> {text} </p>
+				<div className="todo-subtext"> {renderedDate()} </div>		
+			</div>
 		)	
 	}
 }

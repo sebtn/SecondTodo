@@ -27,8 +27,8 @@ module.exports = {
 		})
 		/*Sorting filter*/
 		filteredTodos.sort( (a, b) => {
-			if (!a.completed  && b.completed) { return -1}
-			else if (a.completed  && !b.completed) { return  1}
+			if (!a.completed  && b.completed) { return -1 }
+			else if (a.completed  && !b.completed) { return  1 }
 			else { return 0	}
 		})
 		/*Filter by text*/
